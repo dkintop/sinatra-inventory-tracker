@@ -19,6 +19,19 @@ class StoresController < ApplicationController
         erb :"stores/show"
     end 
 
+    get '/stores/:id/edit' do 
+        @store = Store.find_by_id(params[:id])
+        erb :"stores/edit"
+    end 
+
+    patch '/stores/:id' do 
+        @store = Store.find_by_id(params[:id])
+        @store.name = params[:name]
+        @store.location = params[:location]
+        @store.save
+        redirect to "/stores/#{@store.id}"
+    end 
+
 
 
 
