@@ -7,9 +7,9 @@ get '/items' do
 end
 
 
-get '/posts/new' do
+get '/items/new' do
 
-    erb:'posts/new'
+    erb :'items/new'
 end
 
 
@@ -17,6 +17,10 @@ get '/items/:id' do
     @item = Item.find_by_id(params['id'])
     erb :'items/show'
 end
+
+post '/items' do 
+    #here you will create new items and assign their store base on the store that the current user belongs to.
+end 
 
 
 
