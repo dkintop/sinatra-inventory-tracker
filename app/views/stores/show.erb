@@ -1,3 +1,5 @@
 <h1> Your Store Information </h1>
 <p> Store Name: <%=@store.name%></p>
 <p> Store Location: <%=@store.location%></p>
+
+#note: there is no delete button to delete a store from the databse because in doing so would delete that store for all existing users, which would cause some real problems in a production version of this application. The delete route only exists in the store controller in the event that it came up in the code review :)

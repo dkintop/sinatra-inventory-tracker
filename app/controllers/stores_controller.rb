@@ -32,6 +32,14 @@ class StoresController < ApplicationController
         redirect to "/stores/#{@store.id}"
     end 
 
+    delete '/stores/:id/delete' do 
+        @store = Store.find_by_id(params[:id])
+        @store.delete 
+        redirect to '/stores'
+    end 
+
+
+
 
 
 
