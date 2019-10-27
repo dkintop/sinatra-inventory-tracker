@@ -4,8 +4,8 @@
 <p> Username:<input type='text' name='username'> </p>
 <p> Password:<input type='text' name='password'></p>
 <p>Your Name:<input type='text' name='name'></p>
-<p>Store ID:<input type='integer' name='store_id'></p>
+<p>Store ID:<input type='integer' name='store_id' value=<%=Store.all.last.id%>></p>
 <input type='submit' value='register user'>
-
-*NOTICE* Your store ID was provided to you at the time of registering your store or by the administrator of your stores account. Contact the administrator of your store account if you do not have a store ID.
 </form>
+<p>*NOTICE* Please verify That the value in the store ID field is identical to that which was provided to you by your store account administrator or the store ID that was provided at the time of registering your store.</p>
+
