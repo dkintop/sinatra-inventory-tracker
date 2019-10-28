@@ -29,20 +29,21 @@ post '/login' do #current problem is that our session[:user_id] is not peristing
     
     if @user && @user.authenticate(params[:password])
         session[:user_id] = @user.id
-         binding.pry
-        redirect "/Users/#{@user.id}"
+        binding.pry
+        redirect :"users/user/#{@user.id}"
     else
         redirect '/login'
     end
     
-end
+end 
 
-get '/Users/:id' do 
-    binding.pry
+get '/users/user/:id' do 
+    #binding.pry
     if logged_in?
     @user = User.find_by_id(params[:id])
     @store = Store.find_by(id: @user.store_id)
-    erb :'Users/users/show'
+    #binding.pry
+    erb :'users/user/show'
     else 
         redirect '/login'
     end
