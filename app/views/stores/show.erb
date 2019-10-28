@@ -2,8 +2,7 @@
 <p> Store Name: <%=@store.name%></p>
 <p> Store Location: <%=@store.location%></p>
 <p> Store ID: <%= @store.id %> </p>
-<p> *NOTICE* Your store ID will be required by all users who wish to have access to your stores inventory. If you are seeing this message after registering your new store, you will need this ID to register your user account. Go <a href='/'> Here</a> To register a new user account.<p>
+<p> *NOTICE* Your store ID will be required by all users who wish to have access to your stores inventory. If you are seeing this message after registering your new store, you will need this ID to register your user account. Go <a href='/Users/registrations/signup'> Here</a> To register a new user account.<p>
 
 
 
-#note: there is no delete button to delete a store from the databse because in doing so would delete that store for all existing users, which would cause some real problems in a production version of this application. The delete route only exists in the store controller in the event that it came up in the code review :)

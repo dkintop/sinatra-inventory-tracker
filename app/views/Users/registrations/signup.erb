@@ -1,5 +1,9 @@
 <h1>Welcome!</h1>
 <h2> Please fill out the form below to register a new user. You will be redirected to the login page upon completion.</h2>
+
+
+
+
 <form action='Users/registrations' method='POST'>
 <p> Username:<input type='text' name='username'> </p>
 <p> Password:<input type='password' name='password'></p>
@@ -7,5 +11,9 @@
 <p>Store ID:<input type='integer' name='store_id' value=<%=Store.all.last.id%>></p>
 <input type='submit' value='register user'>
 </form>
+
+
+
+
 <p>*NOTICE* Please verify That the value in the store ID field is identical to that which was provided to you by your store account administrator or the store ID that was provided at the time of registering your store.</p>
 
