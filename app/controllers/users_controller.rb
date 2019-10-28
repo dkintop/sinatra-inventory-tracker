@@ -30,19 +30,19 @@ post '/login' do #current problem is that our session[:user_id] is not peristing
     if @user && @user.authenticate(params[:password])
         session[:user_id] = @user.id
         binding.pry
-        redirect :"users/user/#{@user.id}"
+        redirect "users/user/#{@user.id}"
     else
         redirect '/login'
     end
     
 end 
-
+#probelm is that user_id is being dropped from the session after redirect.
 get '/users/user/:id' do 
-    #binding.pry
+    binding.pry
     if logged_in?
     @user = User.find_by_id(params[:id])
     @store = Store.find_by(id: @user.store_id)
-    #binding.pry
+    binding.pry
     erb :'users/user/show'
     else 
         redirect '/login'
