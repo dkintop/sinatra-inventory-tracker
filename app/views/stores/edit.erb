@@ -1,7 +1,7 @@
 <h1> Store Edit </h1>
 <p>To make changes to your current store information, please fill out the form below. </p>
 
-<p> *NOTICE*: by filling out this form you will be changing the store information for this store for all users associated with this store. If you are attempting to change your store to a different existing store, visit your user account. To register a new store, visit the homepage.</p>
+<p> *NOTICE*: by filling out this form you will be changing the store information for all users associated with this store. If you are attempting to change your store to a different existing store, you will need to register a new user account with your new store's ID.</p>
 
 <form action='/stores/<%=@store.id%>' method='POST'>
 <input id="hidden" type="hidden" name="_method" value="patch">

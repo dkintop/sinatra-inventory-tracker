@@ -12,25 +12,37 @@ post '/Users/registrations/Users/registrations' do
     @user.store = Store.find_by_id(params[:store_id]) #this form gets info posted from user signup.erb
     @user.name = params[:name]
     @user.save
-    session[:user_id]= @user.id
-    if session[:user_id] == @user.id
-    redirect to "/Users/#{@user.id}"
-    else
-        puts "error"
+    redirect to '/login'
+end
+
+get '/Users/:id' do 
+    if logged_in?
+    @user = User.find_by_id(params[:id])
+    @store = Store.find_by(id: @user.store_id)
+    erb :'Users/users/show'
+    else 
+        redirect '/login'
     end
 end
 
-get '/Users/:id' do
-    @user = User.find_by_id(params[:id])
-    
-    @store = @user.store
-   if session[:user_id] == @user.id
-    erb :'Users/users/show'
-   else
-    redirect to '/'
-   end
+
+
+get '/login' do 
+    erb :'Users/sessions/login'
 end
 
+post '/login' do #current problem is that our session[:user_id] is not being setfor some reason.
+    
+    user = User.find_by(username: params[:username])
+    
+    if user && user.authenticate(params[:password])
+        session[:user_id] = user.id
+        redirect "/Users/#{user.id}"
+    else
+        redirect '/login'
+    end
+    
+end
 
     
 end
