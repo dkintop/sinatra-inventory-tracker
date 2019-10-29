@@ -2,8 +2,9 @@ class ItemsController <ApplicationController
 
 
 get '/items' do 
-    @items = Item.all.select{|item| item.store == current_user.store}  
-    erb :'/items/index'
+    @items = Item.all.select{|item| item.store == current_user.store} 
+    
+    erb :'items/index'
 end
 
 
@@ -15,6 +16,7 @@ end
 
 get '/items/:id' do 
     @item = Item.find_by_id(params['id'])
+    @id = params['id']
     erb :'items/show'
 end
 
@@ -29,7 +31,7 @@ post '/items' do
    @item.store = current_user.store
         if @item.save
         redirect to '/items'
-   
+            
         else
         @error = @item.errors.full_messages.first
             erb :'items/error'

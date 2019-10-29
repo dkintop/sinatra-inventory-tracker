@@ -2,7 +2,7 @@
 <a href='/items/new'> Add New Item </a>
 
 <% @items.each do |item| %>
-    <h2><a href='items/<%=@item.id%>'><%= item.name %></a></h2>
+    <h2><a href='/items/<%=item.id%>'><%= item.name %></a></h2>
     <p>Price: $<%=item.price%> | Count: <%=item.count%></p>   
     
 <% end %>
