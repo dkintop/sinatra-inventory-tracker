@@ -14,7 +14,7 @@ post '/Users/registrations/Users/registrations' do
     @user.name = params[:name]
     if @user.save
     redirect to '/login'
-
+        
     else 
         
         @error = @user.errors.full_messages.first
