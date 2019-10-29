@@ -32,7 +32,7 @@ get '/login' do
 end
 
 post '/login' do 
-   
+    @error= nil
     @user = User.find_by(username: params[:username])
     
     if @user && @user.authenticate(params[:password])
@@ -40,11 +40,13 @@ post '/login' do
         
         redirect "users/user/#{@user.id}"
     else
-        redirect '/login'
+       
+       
+        erb :'users/sessions/error_page'
     end
     
 end 
-#probelm is that user_id is being dropped from the session after redirect.
+
 get '/users/user/:id' do 
     
     if logged_in?
@@ -56,6 +58,13 @@ get '/users/user/:id' do
         redirect '/login'
     end
 end
+
+get '/logout' do 
+    session.clear
+    redirect '/'
+end
+
+
 
     
 end
