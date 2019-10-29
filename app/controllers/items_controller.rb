@@ -59,6 +59,12 @@ patch '/items/:id' do
     redirect to "/items/#{@item.id}"
 end
 
+delete '/items/:id/delete' do
+    @article = Item.find_by_id(params[:id])
+    @article.delete 
+    redirect to '/items'
+end
+
 
 
 end 
