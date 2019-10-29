@@ -3,7 +3,7 @@ class ItemsController <ApplicationController
 
 get '/items' do 
     @items = Item.all.select{|item| item.store == current_user.store} 
-    
+    @store = current_user.store
     erb :'items/index'
 end
 
