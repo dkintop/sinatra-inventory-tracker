@@ -10,8 +10,17 @@ class StoresController < ApplicationController
     end
 
     post '/stores' do 
-        @store = Store.create(:name =>params[:name], :location => params[:location]) 
-        redirect to "/stores/#{@store.id}"
+        @store = Store.new(:name =>params[:name], :location => params[:location]) 
+        
+        if @store.save
+            redirect to "/stores/#{@store.id}"
+        else 
+            binding.pry
+            @error = @store.errors.full_messages.first
+            erb :'stores/error'
+        end
+
+
     end 
 
     get '/stores/:id' do 
