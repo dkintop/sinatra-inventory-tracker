@@ -1,6 +1,9 @@
-<h1>Inventroy Items</h1>
+<h1>Inventory Items</h1>
 
 <% @items.each do |item| %>
-    <h2><a href='items/<%=item.id%>'><%= item.name %></h2>
-#consider creating a table heres
+    <h2><a href='items/<%=item.id%>'><%= item.name %></a></h2>
+    <p>Price: $<%=item.price%> | Count: <%=item.count%></p>   
+    
 <% end %>
+
+<a href='/items/new'> Add New Item </a>

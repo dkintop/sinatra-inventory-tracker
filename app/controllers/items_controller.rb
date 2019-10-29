@@ -2,7 +2,7 @@ class ItemsController <ApplicationController
 
 
 get '/items' do 
-    @items = Item.all  #eventually you will make this so only the items from the store that the user belongs to will display.
+    @items = Item.all.select{|item| item.store == current_user.store}  
     erb :'/items/index'
 end
 
@@ -19,7 +19,29 @@ get '/items/:id' do
 end
 
 post '/items' do 
-    #here you will create new items and assign their store base on the store that the current user belongs to.
+   if !logged_in?
+            redirect '/login'
+   else
+    @item = Item.new 
+   @item.name = params[:name]
+   @item.price = params[:price]
+   @item.count = params[:count]
+   binding.pry
+   @item.store = current_user.store
+    
+    
+        if @item.save
+        redirect to '/items'
+   
+        
+         
+        else
+        @error = @item.errors.full_messages.first
+            erb :'items/error'
+        end
+        
+
+    end
 end 
 
 
