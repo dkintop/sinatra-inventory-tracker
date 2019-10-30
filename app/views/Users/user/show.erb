@@ -1,5 +1,44 @@
-<p>Current User: <%=@user.name%></p>
+<style>
+  .label{
+background-color: silver;
+font-weight: bold;
+}
+.link{
+  background-color: silver;
+    width: 10%;
+    text-align: center;
+    border-style: solid; 
+    border-color: black;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px black;
+    text-color: black;
+}
+.link:hover{
+    background-color: gray;
+    width: 10%;
+    text-align: center;
+    border-style: solid; 
+    border-color: black;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px black;
+    text-color: black;
+    
+}
+.link:visited{
+    background-color: silver;
+    width: 10%;
+    text-align: center;
+    border-style: solid; 
+    border-color: black;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px black;
+    text-color: black;
+}
+</style>
 
-<p>Store: <%=@store.name%></p>
-<p>Store ID: <%=@store.id%></p>
-<a href='/items'>Go to Inventory</a>
+
+<p><div class='label'>Current User:</div> <%=@user.name%></p>
+
+<p><div class='label'>Store:</div> <%=@store.name%></p>
+<p><div class='label'>Store ID:</div> <%=@store.id%></p>
+<a class='link' href='/items'>Go to Inventory</a>

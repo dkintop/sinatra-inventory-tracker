@@ -53,7 +53,7 @@ get '/users/user/:id' do
     @user = User.find_by_id(params[:id])
     @store = Store.find_by(id: @user.store_id)
     
-    erb :'users/user/show'
+    erb :'users/user/show' 
     else 
         redirect '/login'
     end
