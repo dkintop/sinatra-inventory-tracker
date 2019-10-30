@@ -1,7 +1,15 @@
 <style>
+.link{
+    background-color: silver;
+    width: 10%;
+}
 table {
     width: 100%;
     border-collapse: collapse;
+}
+h1 {
+    background-color: grey;
+    
 }
 
 th, td {
@@ -21,9 +29,9 @@ caption {
 </style>
 
 <h1><%=@store.name%>  Inventory </h1>
-<p><a href='/logout'> Logout </a></p>
+<p class= 'link'><a href='/logout'> Logout </a></p>
 
-<a href='/items/new'> Add New Item </a>
+<p class = 'link'><a href='/items/new'> Add New Item </a></p>
 
 <table>
    <caption> Inventory </caption>
@@ -32,10 +40,10 @@ caption {
         <th>Price</th>
         <th>Count</th>
     </tr>
-    <% @items.each do |item| %>
+    <% @items.each_with_index do |item, index| %>
         
         <tr>
-            <td><a href='/items/<%=item.id%>'><%= item.name %></a></td>
+            <td><%=index +1%>. <a href='/items/<%=item.id%>'><%= item.name.capitalize %></a></td>
             <td>$<%=item.price%></td>
             <td><%=item.count%></td>
         </tr>
@@ -43,7 +51,7 @@ caption {
     
 </table>
 
-<a href='/items/new'> Add New Item </a>
+<p class= 'link'><a href='/items/new'> Add New Item </a></p>
 
 
 
