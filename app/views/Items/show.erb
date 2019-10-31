@@ -1,3 +1,71 @@
+<style>
+.link{
+  background-color: silver;
+    width: 10%;
+    text-align: center;
+    padding: 3px;
+    border-style: solid; 
+    border-color: black;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px black;
+    text-color: black;
+}
+.link:hover{
+    background-color: gray;
+    width: 10%;
+    text-align: center;
+    border-style: solid; 
+    border-color: black;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px black;
+    text-color: black;
+    
+}
+.link:visited{
+    background-color: silver;
+    width: 10%;
+    text-align: center;
+    border-style: solid; 
+    border-color: black;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px black;
+    text-color: black;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px;
+}
+h1 {
+    background-color: grey;
+    border-style:solid;
+    border-color: black;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px black
+}
+
+th, td {
+    padding: 15px;
+    border: 2px solid grey;
+}
+
+th {
+    text-align: left;
+}
+
+caption {
+    background-color: grey;
+    
+    color: white;
+}
+a {
+    width: 10% ;
+}
+
+</style>
+
+
+
 <h1><%= @item.name.capitalize %></h1>
 <h2> Price: $<%=@item.price%></h2>
 <h2> Item Count: <%=@item.count%></h2>
@@ -5,5 +73,6 @@
     <input id="hidden" type="hidden" name="_method" value="delete">
     <input type='submit' value='delete'>
 </form>
-<a href='/items/<%=@id%>/edit'> Edit </a><br></br>
-<a href='/items'> Back to Inventory</a>
+<br></br>
+<a href='/items/<%=@id%>/edit'><p class= 'link'> Edit </p></a><br></br>
+<a href='/items'><p class='link'> Back to Inventory</p></a>
