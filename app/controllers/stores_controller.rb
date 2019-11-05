@@ -1,7 +1,7 @@
 class StoresController < ApplicationController
     
     get '/stores' do 
-        @stores = Store.all #change this to display only stores that the current user belongs to.
+        @stores = Store.all 
         erb :"stores/index"
     end
 
